@@ -5,10 +5,6 @@ author:
     affiliations:
       - name: Georgetown University
 date: '2023-04-27'
-abstract: "The Traveling Salesman Problem (TSP) is a well-studied optimization problem with a wide variety of applications and approaches to solving it. The methods and tools of Reinforcement Learning (RL) offer a distinctive strategy for approaching the TSP due to the ease with which its reward structure can be modified. Using data obtained from Skyscanner, this study examines how Q-learning, an RL technique, can optimize a travel route through 42 Asian cities. We first provide a theoretical background into the tools discussed, followed by an exposition of the methodology and experiments. The study's results show that Q-learning is a very effective method for solving the TSP. We also discuss the model's limitations and how it can be extended in future work."
-categories: [reinforcement learning]
-content-type: projects
-image: "assets/resources/Images/TravelAgents/travel_agent_1.jpeg"
 format:
   html:
     toc: true
@@ -20,12 +16,19 @@ bibliography: assets/references.bib
 csl: assets/council-of-science-editors-brackets.csl
 ---
 
+- Visit my [website](https://www.victordelima.com/).
+
+
 ::: {.callout-note appearance="simple"}
 
 All code used in this report is publicly available on [GitHub](https://github.com/vdelimad/tsb-with-reinforcement-learning).
 
 ::: 
 
+
+### Abstract {.unnumbered}
+
+The Traveling Salesman Problem (TSP) is a well-studied optimization problem with a wide variety of applications and approaches to solving it. The methods and tools of Reinforcement Learning (RL) offer a distinctive strategy for approaching the TSP due to the ease with which its reward structure can be modified. Using data obtained from Skyscanner, this study examines how Q-learning, an RL technique, can optimize a travel route through 42 Asian cities. We first provide a theoretical background into the tools discussed, followed by an exposition of the methodology and experiments. The study's results show that Q-learning is a very effective method for solving the TSP. We also discuss the model's limitations and how it can be extended in future work.
 
 
 ```{python}

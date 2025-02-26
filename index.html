@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<meta name="generator" content="quarto-1.5.41">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -44,7 +44,7 @@ div.csl-indent {
 }</style>
 
 
-<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/quarto.js"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
@@ -55,11 +55,38 @@ div.csl-indent {
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -71,7 +98,8 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
   <li><a href="#related-work" id="toc-related-work" class="nav-link" data-scroll-target="#related-work"><span class="header-section-number">2</span> Related Work</a></li>
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3</span> Methodology</a>
   <ul class="collapse">
@@ -89,10 +117,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Applying Reinforcement Learning to the Traveling Salesman Problem</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">reinforcement learning</div>
-  </div>
-  </div>
+</div>
 
 
 <div class="quarto-title-meta-author">
@@ -102,12 +127,12 @@ div.csl-indent {
     <div class="quarto-title-meta-contents">
     <p class="author">Victor De Lima </p>
   </div>
-    <div class="quarto-title-meta-contents">
+  <div class="quarto-title-meta-contents">
         <p class="affiliation">
             Georgetown University
           </p>
       </div>
-    </div>
+  </div>
 
 <div class="quarto-title-meta">
 
@@ -122,15 +147,14 @@ div.csl-indent {
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="abstract-title">Abstract</div>
-    The Traveling Salesman Problem (TSP) is a well-studied optimization problem with a wide variety of applications and approaches to solving it. The methods and tools of Reinforcement Learning (RL) offer a distinctive strategy for approaching the TSP due to the ease with which its reward structure can be modified. Using data obtained from Skyscanner, this study examines how Q-learning, an RL technique, can optimize a travel route through 42 Asian cities. We first provide a theoretical background into the tools discussed, followed by an exposition of the methodology and experiments. The study’s results show that Q-learning is a very effective method for solving the TSP. We also discuss the model’s limitations and how it can be extended in future work.
-  </div>
-</div>
+
 
 </header>
 
+
+<ul>
+<li>Visit my <a href="https://www.victordelima.com/">website</a>.</li>
+</ul>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -141,12 +165,20 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<div id="fig-travel-agent" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="assets/resources/Images/TravelAgents/travel_agent_1.jpeg" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Picture of a robot travel agent generated with Stable Diffusion <span class="citation" data-cites="stability_ai_stable_2023">[<a href="#ref-stability_ai_stable_2023" role="doc-biblioref">1</a>]</span> using prompt “<em>a friendly-looking humanoid robot travel agent greeting you on its work desk and a map hanging in the back wall</em>”</figcaption>
+<section id="abstract" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="abstract">Abstract</h3>
+<p>The Traveling Salesman Problem (TSP) is a well-studied optimization problem with a wide variety of applications and approaches to solving it. The methods and tools of Reinforcement Learning (RL) offer a distinctive strategy for approaching the TSP due to the ease with which its reward structure can be modified. Using data obtained from Skyscanner, this study examines how Q-learning, an RL technique, can optimize a travel route through 42 Asian cities. We first provide a theoretical background into the tools discussed, followed by an exposition of the methodology and experiments. The study’s results show that Q-learning is a very effective method for solving the TSP. We also discuss the model’s limitations and how it can be extended in future work.</p>
+<div id="fig-travel-agent" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-travel-agent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/resources/Images/TravelAgents/travel_agent_1.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-travel-agent-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Picture of a robot travel agent generated with Stable Diffusion <span class="citation" data-cites="stability_ai_stable_2023">[<a href="#ref-stability_ai_stable_2023" role="doc-biblioref">1</a>]</span> using prompt “<em>a friendly-looking humanoid robot travel agent greeting you on its work desk and a map hanging in the back wall</em>”
+</figcaption>
 </figure>
 </div>
+</section>
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Anyone who has planned a trip that involves visiting several cities will have undoubtedly found themselves wondering what is the best way to visit each location while minimizing the cost of the trip. Each location has several considerations, such as distance, cost, and the importance of visiting specific places. The question can become overwhelming with the realization that we would have to consider each city as both a potential starting point and a potential next stop from any other city. We can analyze such a scenario through the framework of the Traveling Salesman Problem (TSP). Karl Menger, one of the first to study the problem mathematically, defines the TSP as “the task to find, for finitely many points whose pairwise distances are known, the shortest route connecting the points” <span class="citation" data-cites="schrijver_history_2005">[<a href="#ref-schrijver_history_2005" role="doc-biblioref">2</a>]</span>. In other words, the goal of the TSP is to find the shortest possible route that visits every point once and then returns to the origin. The TSP is an NP-hard combinatorial optimization problem. It is simple to solve by brute force for five stops by trying all combinations (5! problem) but already impossible for 50 (50! problem).</p>
@@ -157,7 +189,7 @@ div.csl-indent {
 <h2 data-number="2" class="anchored" data-anchor-id="related-work"><span class="header-section-number">2</span> Related Work</h2>
 <p>The TSP is an extension of the Hamiltonian Circuit Problem, a formulation that asks whether a graph contains a cycle that visits each node exactly once, which is itself an NP-complete problem <span class="citation" data-cites="miller_reducibility_1972">[<a href="#ref-miller_reducibility_1972" role="doc-biblioref">6</a>]</span>. The TSP builds on this theory and asks what is the shortest possible Hamiltonian Circuit given a weighted graph. Furthermore, we can broadly divide the TSP into symmetric and asymmetric subcategories in the single-agent case. Given two nodes, A and B, if the costs associated with traveling from A to B are the same as those of traveling from B to A, then the TSP is symmetric. However, if the cost of traveling from A to B differs from that of traveling from B to A, then the TSP is asymmetric <span class="citation" data-cites="davendra_traveling_2010">[<a href="#ref-davendra_traveling_2010" role="doc-biblioref">7</a>]</span>.</p>
 <p>The body of literature discussing methods for solving the TSP is extensive. The base method is by brute force (also known as the Naive Approach), which consists of finding all possible route permutations. This approach becomes unfeasible as the number of locations increases. The Branch and Bound method attempts to find a solution by breaking the problem into subproblems. Each subproblem is recursively solved to find an optimal solution <span class="citation" data-cites="little_algorithm_1963">[<a href="#ref-little_algorithm_1963" role="doc-biblioref">8</a>]</span>. The Nearest Neighbor Method is also a widely used heuristic method, which relies on going to the closest location at every step and returning to the starting one once all locations have been visited <span class="citation" data-cites="johnson_traveling_1997">[<a href="#ref-johnson_traveling_1997" role="doc-biblioref">9</a>]</span>.</p>
-<p>Additionally, there are extensively studied approximate approaches, such as Simulated Annealing (SA), which is inspired by the materials science process of annealing. <span class="citation" data-cites="kirkpatrick_optimization_1983">[<a href="#ref-kirkpatrick_optimization_1983" role="doc-biblioref">10</a>]</span> initially conceived SA and consists of randomly generating an initial solution and iteratively improving it by selecting a neighboring alternative. At each step, the procedure decides whether to accept or reject the selection based on a specified criterion. Lastly, genetic algorithms (GAs) are also very popular. Starting from <span class="citation" data-cites="brady_optimization_1985">[<a href="#ref-brady_optimization_1985" role="doc-biblioref">11</a>]</span>, GAs builds on the idea of natural selection to start with a set of candidate solutions that are evaluated for “fitness.” Then, the process iterates until meeting a stopping criterion.</p>
+<p>Additionally, there are extensively studied approximate approaches, such as Simulated Annealing (SA), which is inspired by the materials science process of annealing. <span class="citation" data-cites="kirkpatrick_optimization_1983">[<a href="#ref-kirkpatrick_optimization_1983" role="doc-biblioref">10</a>]</span> initially conceived SA and consists of randomly generating an initial solution and iteratively improving it by selecting a neighboring alternative. At each step, the procedure decides whether to accept or reject the selection based on a specified criterion. Lastly, genetic algorithms (GAs) are also very popular. Starting from <span class="citation" data-cites="brady_optimization_1985">[<a href="#ref-brady_optimization_1985" role="doc-biblioref">11</a>]</span>, GAs build on the idea of natural selection to start with a set of candidate solutions that are evaluated for “fitness.” Then, the process iterates until meeting a stopping criterion.</p>
 <p>Lastly, the TSP has also received attention from the rapid increase in reinforcement learning applications in recent decades witnessed in recent decades. Some examples worth mentioning include applying Q-learning and SARSA to optimize vehicle routes with fuel constraints <span class="citation" data-cites="ottoni_reinforcement_2022">[<a href="#ref-ottoni_reinforcement_2022" role="doc-biblioref">12</a>]</span>, and TSP involving truck-drone fleets coordination using deep reinforcement learning <span class="citation" data-cites="bogyrbayeva_deep_2023">[<a href="#ref-bogyrbayeva_deep_2023" role="doc-biblioref">13</a>]</span>. This study builds on this body of literature to apply Q-Leaning to a TSP flight route optimization problem in the asymmetric case.</p>
 </section>
 <section id="methodology" class="level2" data-number="3">
@@ -170,18 +202,22 @@ div.csl-indent {
 \begin{align}\begin{aligned}Q(s, a) = Q(s, a) + \alpha * \\\begin{split} \left( r +\gamma \max_{a'} Q(s', a') - Q(s, a) \right)
 \end{split}\end{aligned}\end{align}
 \tag{1}\]</span></span></p>
-<p>where <span class="math inline">\(Q(s, a)\)</span> is the current estimate of the value of taking action <span class="math inline">\(a\)</span> in state <span class="math inline">\(s\)</span>, <span class="math inline">\(r\)</span> is the reward (cost) from taking an action, <span class="math inline">\(\alpha\)</span> is a learning rate hyperparameter, and <span class="math inline">\(\gamma\)</span> is a discount rate hyperparameter. States and actions denoted with the <span class="math inline">\(\prime\)</span> symbol denote the next state or action. By applying <a href="#eq-q-update">Equation&nbsp;1</a>, the model can update the existing estimates of <span class="math inline">\(Q(s, a)\)</span>. Then, the agent takes the action with the highest Q-value at every step <span class="citation" data-cites="bilgin_mastering_2020">[<a href="#ref-bilgin_mastering_2020" role="doc-biblioref">14</a>]</span>.</p>
+<p>where <span class="math inline">\(Q(s, a)\)</span> is the current estimate of the value of taking action <span class="math inline">\(a\)</span> in state <span class="math inline">\(s\)</span>, <span class="math inline">\(r\)</span> is the reward (cost) from taking an action, <span class="math inline">\(\alpha\)</span> is a learning rate hyperparameter, and <span class="math inline">\(\gamma\)</span> is a discount rate hyperparameter. States and actions denoted with the <span class="math inline">\(\prime\)</span> symbol denote the next state or action. By applying <a href="#eq-q-update" class="quarto-xref">Equation&nbsp;1</a>, the model can update the existing estimates of <span class="math inline">\(Q(s, a)\)</span>. Then, the agent takes the action with the highest Q-value at every step <span class="citation" data-cites="bilgin_mastering_2020">[<a href="#ref-bilgin_mastering_2020" role="doc-biblioref">14</a>]</span>.</p>
 </section>
 <section id="data" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="data"><span class="header-section-number">3.2</span> Data</h3>
-<p>We obtained the initial list of target cities and coordinate data from <span class="citation" data-cites="flagpicturescom_list_2023">[<a href="#ref-flagpicturescom_list_2023" role="doc-biblioref">15</a>]</span>. Pyongyang, Sanaa, Rangoon, Damascus, Kabul, and Thimphu were removed from the list due to limited flight availability, resulting in 42 cities for the study. <a href="#fig-airport-locations">Figure&nbsp;2</a> shows the airport locations in each city.</p>
-<div class="cell" data-execution_count="2">
-<div id="fig-airport-locations" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<p>We obtained the initial list of target cities and coordinate data from <span class="citation" data-cites="flagpicturescom_list_2023">[<a href="#ref-flagpicturescom_list_2023" role="doc-biblioref">15</a>]</span>. Pyongyang, Sanaa, Rangoon, Damascus, Kabul, and Thimphu were removed from the list due to limited flight availability, resulting in 42 cities for the study. <a href="#fig-airport-locations" class="quarto-xref">Figure&nbsp;2</a> shows the airport locations in each city.</p>
+<div id="cell-fig-airport-locations" class="cell" data-execution_count="2">
+<div id="fig-airport-locations" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="7">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-airport-locations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
         <iframe width="100%" height="500" src="assets/resources/Outputs/Plots/map_of_airport_locations.html" frameborder="0" allowfullscreen=""></iframe>
         
-<figcaption class="figure-caption">Figure&nbsp;2: Interactive Folium world map with overlay over Asia showing the cities of interest, with a tile by <span class="citation" data-cites="national_geographic_esrinatgeoworldmap_2023">[<a href="#ref-national_geographic_esrinatgeoworldmap_2023" role="doc-biblioref">16</a>]</span> and administrative boundaries from <span class="citation" data-cites="opendatasoft_world_2022">[<a href="#ref-opendatasoft_world_2022" role="doc-biblioref">17</a>]</span>. <strong>Note</strong>: VPNs may prevent correct map rendering.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-airport-locations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Interactive Folium world map with overlay over Asia showing the cities of interest, with a tile by <span class="citation" data-cites="national_geographic_esrinatgeoworldmap_2023">[<a href="#ref-national_geographic_esrinatgeoworldmap_2023" role="doc-biblioref">16</a>]</span> and administrative boundaries from <span class="citation" data-cites="opendatasoft_world_2022">[<a href="#ref-opendatasoft_world_2022" role="doc-biblioref">17</a>]</span>. <strong>Note</strong>: VPNs may prevent correct map rendering.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -191,14 +227,18 @@ div.csl-indent {
 \begin{flalign}\begin{aligned} \rm best \, price =  fare + flight \,time  \\\begin{split} \rm * 20 + stops * 50
 \end{split}\end{aligned}\end{flalign}
 \tag{2}\]</span></span></p>
-<p><a href="#fig-airport-links">Figure&nbsp;3</a> shows color-coded prices between airports.</p>
-<div class="cell" data-execution_count="3">
-<div id="fig-airport-links" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<p><a href="#fig-airport-links" class="quarto-xref">Figure&nbsp;3</a> shows color-coded prices between airports.</p>
+<div id="cell-fig-airport-links" class="cell" data-execution_count="3">
+<div id="fig-airport-links" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="8">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-airport-links-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
         <iframe width="100%" height="500" src="assets/resources/Outputs/Plots/map_of_airport_links.html" frameborder="0" allowfullscreen=""></iframe>
         
-<figcaption class="figure-caption">Figure&nbsp;3: Interactive Folium world map showing the links between airports with color-coded prices. <strong>Note</strong>: VPNs may prevent correct map rendering.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-airport-links-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Interactive Folium world map showing the links between airports with color-coded prices. <strong>Note</strong>: VPNs may prevent correct map rendering.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -206,66 +246,98 @@ div.csl-indent {
 </section>
 <section id="experiments-and-results" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="experiments-and-results"><span class="header-section-number">4</span> Experiments and Results</h2>
-<p>We implemented the model in Python using custom classes and functions. The model was based on the <span class="citation" data-cites="alves_da_costa_delivery_2019">[<a href="#ref-alves_da_costa_delivery_2019" role="doc-biblioref">19</a>]</span> implementation, particularly on the method for tracking previously visited locations and preventing revisiting them. The model constructed a matrix of Q-values of size <span class="math inline">\(42 \times 42\)</span> and employed an e-greedy strategy with epsilon decay at a rate of 0.999. Finally, we ran the model through 200 episodes of Q-learning, with results available in <a href="#fig-experiment-results">Figure&nbsp;4</a>.</p>
-<div id="fig-experiment-results" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<div id="fig-score-results" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="assets/resources/Outputs/Plots/flight_score.png" class="img-fluid figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results"></p>
-<figcaption class="figure-caption">(a) Flight Score Results</figcaption>
+<p>We implemented the model in Python using custom classes and functions. The model was based on the <span class="citation" data-cites="alves_da_costa_delivery_2019">[<a href="#ref-alves_da_costa_delivery_2019" role="doc-biblioref">19</a>]</span> implementation, particularly on the method for tracking previously visited locations and preventing revisiting them. The model constructed a matrix of Q-values of size <span class="math inline">\(42 \times 42\)</span> and employed an e-greedy strategy with epsilon decay at a rate of 0.999. Finally, we ran the model through 200 episodes of Q-learning, with results available in <a href="#fig-experiment-results" class="quarto-xref">Figure&nbsp;4</a>.</p>
+<div id="fig-experiment-results" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-experiment-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-score-results" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-score-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/resources/Outputs/Plots/flight_score.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-score-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Flight Score Results
+</figcaption>
 </figure>
 </div>
-<div id="fig-expense-results" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="assets/resources/Outputs/Plots/fares_in_usd.png" class="img-fluid figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results"></p>
-<figcaption class="figure-caption">(b) Fare Expense Results</figcaption>
+<div id="fig-expense-results" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-expense-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/resources/Outputs/Plots/fares_in_usd.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-expense-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Fare Expense Results
+</figcaption>
 </figure>
 </div>
-<div id="fig-time-results" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="assets/resources/Outputs/Plots/flight_time.png" class="img-fluid figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results"></p>
-<figcaption class="figure-caption">(c) Flight Time Results</figcaption>
+<div id="fig-time-results" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-time-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/resources/Outputs/Plots/flight_time.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-time-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Flight Time Results
+</figcaption>
 </figure>
 </div>
-<div id="fig-stops-results" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="assets/resources/Outputs/Plots/flight_stops.png" class="img-fluid figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results"></p>
-<figcaption class="figure-caption">(d) Flight Stops Results</figcaption>
+<div id="fig-stops-results" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-stops-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="assets/resources/Outputs/Plots/flight_stops.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%" data-ref-parent="fig-experiment-results">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-stops-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Flight Stops Results
+</figcaption>
 </figure>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;4: Experiment Results</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-experiment-results-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Experiment Results
+</figcaption>
 </figure>
 </div>
 <p>The results obtained had several important improvements from the initial randomness, such as:</p>
 <ul>
 <li>Decreasing overall flight expenditure from around $18,000 to $8000</li>
 <li>Decreasing overall flight expenditure from around 20,000 minutes (333.3 hours or 7.93 average hours per flight) to 9000 (133.3 hours or 3.17 average hours per flight)</li>
-<li>Decreasing overall stopover expenditure from around 100 to 60.</li>
+<li>Decreasing overall stopovers from around 100 to 60.</li>
 </ul>
-<p>Furthermore, <a href="#fig-first-and-last-episodes">Figure&nbsp;5</a> shows the chosen trajectories for the first and last episodes, allowing us to observe the choice changes from the untrained and trained models. t is challenging to discern the disparities between these figures through mere observation, underscoring the model’s proficiency in revealing mathematical advantages that may otherwise be arduous to infer by visual inspection alone.</p>
-<div id="fig-first-and-last-episodes" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<div class="cell" data-execution_count="4">
-<div id="fig-first-episode-links" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<p>Furthermore, <a href="#fig-first-and-last-episodes" class="quarto-xref">Figure&nbsp;5</a> shows the chosen trajectories for the first and last episodes, allowing us to observe the choice changes from the untrained and trained models. It is challenging to discern the disparities between these figures through mere observation, underscoring the model’s proficiency in revealing mathematical advantages that may otherwise be arduous to infer by visual inspection alone.</p>
+<div id="fig-first-and-last-episodes" class="quarto-float quarto-figure quarto-figure-center anchored" data-layout-ncols="1">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-first-and-last-episodes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="cell-fig-first-episode-links" class="cell" data-execution_count="4">
+<div id="fig-first-episode-links" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="9">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-first-episode-links-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
         <iframe width="100%" height="500" src="assets/resources/Outputs/Plots/first_episode_links.html" frameborder="0" allowfullscreen=""></iframe>
         
-<figcaption class="figure-caption">(a) Shows the first episode’s links. <strong>Note</strong>: VPNs may prevent correct map rendering.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-first-episode-links-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Shows the first episode’s links. <strong>Note</strong>: VPNs may prevent correct map rendering.
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="cell" data-execution_count="5">
-<div id="fig-last-episode-links" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
+<div id="cell-fig-last-episode-links" class="cell" data-execution_count="5">
+<div id="fig-last-episode-links" class="cell-output cell-output-display quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="10">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-last-episode-links-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 
         <iframe width="100%" height="500" src="assets/resources/Outputs/Plots/last_episode_links.html" frameborder="0" allowfullscreen=""></iframe>
         
-<figcaption class="figure-caption">(b) Shows the last episode’s links. <strong>Note</strong>: VPNs may prevent correct map rendering.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-last-episode-links-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Shows the last episode’s links. <strong>Note</strong>: VPNs may prevent correct map rendering.
+</figcaption>
 </figure>
 </div>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;5: Trayectories of the first and last episodes.</figcaption>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-first-and-last-episodes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Trayectories of the first and last episodes.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -280,7 +352,7 @@ div.csl-indent {
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
 <div id="ref-stability_ai_stable_2023" class="csl-entry" role="listitem">
 <div class="csl-left-margin">[1] </div><div class="csl-right-inline">Stability AI. Stable <span>Diffusion</span> 2-1. Hugging Face. 2023 [accessed 2023 Apr 25]. <a href="https://huggingface.co/spaces/stabilityai/stable-diffusion">https://huggingface.co/spaces/stabilityai/stable-diffusion</a></div>
 </div>
@@ -380,18 +452,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -423,11 +484,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -437,8 +537,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -450,7 +559,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -494,6 +726,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -519,6 +752,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -579,6 +838,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
